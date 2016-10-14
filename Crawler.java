@@ -28,7 +28,6 @@ public class Crawler {
 				case 'R': // Single quote for char variables
 					break;
 				case 'r':
-					System.out.println("Player turned right.");
 					break;
 				case 'L':
 					break;
