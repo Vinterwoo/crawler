@@ -19,6 +19,7 @@ public class Crawler {
 			
 			while (i < 10) {
 				//Ask user for input
+				System.out.print("");
 				System.out.println("Turn Right (R) or Left (L)");
 				
 				String input2 = newInputV.nextLine();
@@ -28,6 +29,7 @@ public class Crawler {
 				case 'R': // Single quote for char variables
 					break;
 				case 'r':
+					System.out.println("Player turned right.");
 					break;
 				case 'L':
 					break;
@@ -51,7 +53,7 @@ public class Crawler {
 				
 				int numOfBeast = 6;
 			
-				System.out.println(randNum);
+				//System.out.println(randNum);
 				
 				if (randNum == numOfBeast) {
 					System.out.println("The Beast Found You");
