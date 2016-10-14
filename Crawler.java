@@ -19,11 +19,11 @@ public class Crawler {
 			
 			while (i < 10) {
 				//Ask user for input
-				System.out.print("");
+				System.out.println("");
 				System.out.println("Turn Right (R) or Left (L)");
 				
 				String input2 = newInputV.nextLine();
-				char[] charArrayV = input2.toCharArray();// Can't swith on a string, so need to switch on a char
+				char[] charArrayV = input2.toCharArray();// Can't switch on a string, so need to switch on a char
 				char inputy = charArrayV[0];// Take 1st variable in character array
 				switch (inputy) {
 				case 'R': // Single quote for char variables
@@ -55,10 +55,15 @@ public class Crawler {
 			
 				//System.out.println(randNum);
 				
-				if (randNum == numOfBeast) {
+				if (randNum > numOfBeast) {
 					System.out.println("The Beast Found You");
 					System.out.println("Choose Fight or Flight");
 					String input3 = newInputV.nextLine();
+					
+					int looper = 0;
+					int death = 0;
+					
+					while(looper == 0){
 					
 					if (input3.equals("Flight")) {
 						System.out.println("Rolling Dice");
@@ -66,12 +71,15 @@ public class Crawler {
 							
 							if(randNum2 >3) {
 								System.out.println("You Ran Like the Wind!");
+								looper++;
 							}
 							
 							else if(randNum2 <=3){
 								System.out.println("You Ran Too Slow! The Beast Ate Your Beating Heart!!");
 								System.out.println("You Died!");
+								death = 1;
 								break;
+								
 							}
 					
 					}
@@ -86,20 +94,26 @@ public class Crawler {
 								System.out.print("You Found ");
 								System.out.print(Gold);
 								System.out.println(" Gold");
+								looper++;
 							}
 							
 							else if (randNum3 <=4){
 								System.out.println("You Fought Poorly. The Beast Removed Your Head From Your Body");
 								System.out.println("You Died!");
+								death = 1;
 								break;
 							}
 						}
 					
 					else {
-						System.out.print("This is not an allowed command");
+						System.out.println("This is not an allowed command");
+						//looper++; Causes an infinte loop
 					}
+				}
 					
-					
+				if (death ==1){
+					break;
+				}	
 					
 					
 					
