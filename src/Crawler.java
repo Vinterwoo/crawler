@@ -7,7 +7,8 @@ public class Crawler {
 		Scanner newInputV = new Scanner(System.in); //Creating a new variable called "newInputV" that is a Scan (Scans take input)
 		//String input=newInputV.nextLine(); // Let java know that input is going to be a string
 		//Guess I don't need the above, but what is best practice to declare a string?
-		int i=0;// for loop control
+		int i = 0;// for loop control
+		int Gold = 0; // Start off with 0 gold
 		
 		System.out.println("Welcome to the Dungeon. Do you wish to enter?");
 		String input = newInputV.nextLine();
@@ -50,12 +51,59 @@ public class Crawler {
 				
 				int numOfBeast = 6;
 			
-				//System.out.println(beast);
+				System.out.println(randNum);
 				
 				if (randNum == numOfBeast) {
 					System.out.println("The Beast Found You");
-					System.out.println("You Died!");
-					break;
+					System.out.println("Choose Fight or Flight");
+					String input3 = newInputV.nextLine();
+					
+					if (input3.equals("Flight")) {
+						System.out.println("Rolling Dice");
+						int randNum2 = luck.nextInt(6)+1; //Rolls a 6 sided die
+							
+							if(randNum2 >3) {
+								System.out.println("You Ran Like the Wind!");
+							}
+							
+							else if(randNum2 <=3){
+								System.out.println("You Ran Too Slow! The Beast Ate Your Beating Heart!!");
+								System.out.println("You Died!");
+								break;
+							}
+					
+					}
+					
+					else if (input3.equals("Fight")){
+							System.out.println("Rolling Dice");
+							int randNum3 = luck.nextInt(6)+1; //Rolls a 6 sided die
+							
+							if (randNum3 > 4) {
+								System.out.println("You Fought Bravely");
+								Gold = randNum3 * 12;
+								System.out.print("You Found ");
+								System.out.print(Gold);
+								System.out.println(" Gold");
+							}
+							
+							else if (randNum3 <=4){
+								System.out.println("You Fought Poorly. The Beast Removed Your Head From Your Body");
+								System.out.println("You Died!");
+								break;
+							}
+						}
+					
+					else {
+						System.out.print("This is not an allowed command");
+					}
+					
+					
+					
+					
+					
+					
+					
+					
 				}
 			
 				i++;// increments
@@ -71,6 +119,9 @@ public class Crawler {
 			int safe = 10;
 			if (i==safe){
 				System.out.println("You Survived!");// If made it without Beast finding you
+				System.out.print("You have ");
+				System.out.print(Gold);
+				System.out.print(" Gold");
 			}
 		} // End of If statement
 		
